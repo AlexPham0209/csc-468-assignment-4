@@ -1,0 +1,22 @@
+
+services:
+  server:
+    build: 
+      context: "./server"
+    ports:
+      - 3000:3000
+    
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+
+volumes:
+  mongo-data:

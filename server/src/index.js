@@ -1,10 +1,24 @@
 const PORT = 3000;
 const express = require('express');
-const db = require('./models/db.js');
 const app = express();
+const path = __dirname + '/views/';
 
-app.get("/", (req, res) => {
-    res.send("WOW");
-});
+// Database
+const db = require('./models/db.js');
 
-app.listen(3000, () => console.log(`Listening on port ${PORT}`));
+// Routes
+const index = require('./routes/index.js')
+const sharks = require('./routes/sharks.js')
+
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+app.set('views', path);
+
+// Middleware Functions
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path));
+
+app.use('/', index);
+app.use('/sharks', sharks);
+
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
