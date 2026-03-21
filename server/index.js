@@ -1,7 +1,7 @@
 const PORT = 3000;
 const express = require('express');
 const app = express();
-const path = __dirname + '/views/';
+const path = __dirname + '/src/views/';
 
 // Database
 const db = require('./src/models/db.js');
