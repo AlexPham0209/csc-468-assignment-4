@@ -4,11 +4,11 @@ const app = express();
 const path = __dirname + '/views/';
 
 // Database
-const db = require('./models/db.js');
+const db = require('./src/models/db.js');
 
 // Routes
-const index = require('./routes/index.js')
-const sharks = require('./routes/sharks.js')
+const index = require('./src/routes/index.js')
+const sharks = require('./src/routes/sharks.js')
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
