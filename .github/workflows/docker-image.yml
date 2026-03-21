@@ -30,7 +30,7 @@ jobs:
         with:
           context: ./server
           push: true
-          tags: ${{ github.repository }}:latest
+          tags: ap0209/${{ github.repository }}:latest
         
 
           
